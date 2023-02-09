@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import './App.scss'
 import { getProducts } from './api.js'
@@ -11,8 +11,9 @@ import Account from './views/Account';
 import Error404 from './views/Error404';
 
 function App() {
+  const [records, setRecords] = useState([])
   const fetchProducts = async () => {
-    console.log(await getProducts());
+    setRecords(await getProducts());
   }
 
   useEffect(() => {
@@ -24,8 +25,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Main />}/>
-          <Route path="/cart" element={<Cart />}/>
+          <Route path="/" element={<Main records={records}/>}/>
+          <Route path="/cart" element={<Cart records={records}/>}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/checkout" element={<Checkout />}/>
           <Route path="/account" element={<Account />}/>
