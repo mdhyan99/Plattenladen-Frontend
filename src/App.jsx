@@ -1,6 +1,14 @@
 import { useEffect } from 'react';
-import './App.css'
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import './App.scss'
 import { getProducts } from './api.js'
+import Header from './components/Header/Header';
+import Main from './views/Main';
+import Cart from './views/Cart';
+import Login from './views/Login';
+import Checkout from './views/Checkout';
+import Account from './views/Account';
+import Error404 from './views/Error404';
 
 function App() {
   const fetchProducts = async () => {
@@ -13,7 +21,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Plattenladen</h1>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />}/>
+          <Route path="/cart" element={<Cart />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/checkout" element={<Checkout />}/>
+          <Route path="/account" element={<Account />}/>
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
