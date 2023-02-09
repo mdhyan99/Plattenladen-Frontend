@@ -1,13 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Chicle&display=swap');
 header {
-    width: 100%
-}
+    display: flex;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    border: 2px solid black;
 
-.search-field {
-    display: inline;
-    position: relative;
-}
-.search-icon {
-    position: absolute;
-    left: 130px;
-    top: 2px;
+    .logo-container {
+        height: 100%;
+        width: 33%;
+        max-width: 200px;
+        padding: 10px;
+        margin-right: 10px;
+        border-right: 2px solid black;
+
+        a {
+            text-decoration: none;
+        }
+
+        span{
+            font-size: 1.4rem;
+            color: #DC4231;
+            font-family: 'Chicle', cursive;
+        }
+    }
+
+    .header-function-search {
+        flex-grow: 1;
+
+        .search-field {
+            display: inline;
+            position: relative;
+            width: 33%;
+
+            input {
+                width: 100%;
+                height: 30px;
+                border: 2px solid black;
+                padding: 1em;
+            }
+        }
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+    }
+
+    .header-function-container {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+        padding: 5px;
+
+        svg {
+           margin: 0 0.8em; 
+        }
+    }
 }

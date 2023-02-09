@@ -1,7 +1,13 @@
-export default function() {
+import "./Counter.scss"
+
+export default function({amount}) {
     return (
         <>
-            Counter
+            <div className="counter">
+                <span>-</span>
+                <span>{amount}</span>
+                <span>+</span>
+            </div>
         </>
     )
 }

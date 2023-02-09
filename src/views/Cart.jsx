@@ -18,6 +18,15 @@ export default function({records}) {
                     amount={c.amount}
                 />
             ))}
+            <hr/>
+            <div className="cart-sum">
+                <span>Versandkosten</span>
+                <span>5,95 €</span>
+            </div>
+            <div className="cart-sum">
+                <span>Gesamtkosten</span>
+                <span>49,85 €</span>
+            </div>
         </>
     )
 }

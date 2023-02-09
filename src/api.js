@@ -16,7 +16,7 @@ export const getProducts = async () => {
                 title: "Haus am See",
                 artist: "Peter Fox",
                 year: 2008,
-                picture: "https://i.scdn.co/image/ab67616d0000b2730d6fa85553f18977dbe079a0",
+                picture: "https://www.musik-sammler.de/cover/372000/349757_300.jpg",
                 price: 17.99,
             }
         ];
