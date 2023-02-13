@@ -1,10 +1,19 @@
-import { useEffect } from 'react';
-import './App.css'
+import { useEffect, useState } from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import './App.scss'
 import { getProducts } from './api.js'
+import Header from './components/Header/Header';
+import Main from './views/Main';
+import Cart from './views/Cart';
+import Login from './views/Login';
+import Checkout from './views/Checkout';
+import Account from './views/Account';
+import Error404 from './views/Error404';
 
 function App() {
+  const [records, setRecords] = useState([])
   const fetchProducts = async () => {
-    console.log(await getProducts());
+    setRecords(await getProducts());
   }
 
   useEffect(() => {
@@ -13,7 +22,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Plattenladen</h1>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main records={records}/>}/>
+          <Route path="/cart" element={<Cart records={records}/>}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/checkout" element={<Checkout />}/>
+          <Route path="/account" element={<Account />}/>
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
